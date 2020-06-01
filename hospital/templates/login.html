@@ -1,0 +1,29 @@
+
+{% extends 'navigationbar.html' %}
+(% load static %)
+{% block body %}
+<div class="container">
+    <h2>admin login</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <label>Admin Name</label>
+        <input type="text" class="form-control" name="uname">
+        <label>Password</label>
+        <input type="password" class="form-control" name="pwd">
+        <br>
+        <input type="submit" value="Login" class="form-control btn btn-primary">
+    </form>
+</div>
+{% ifequal error "no" %}
+<script>
+    alert('submit successfully');
+    
+</script>
+{% endifequal %}
+
+{% ifequal error "yes" %}
+<script>
+    alert('something went wrong');
+</script>
+{% endifequal %}
+{% endblock %}

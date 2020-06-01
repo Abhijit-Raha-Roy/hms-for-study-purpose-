@@ -1,0 +1,40 @@
+{% extends 'navigationbar.html' %}
+(% load static %)
+{% block body %}
+<div class="container">
+    <h2>Add Patient</h2>
+    <form method="post">
+        {% csrf_token %}
+        <label>Doctor Name</label>
+        <select name="doctor" class="form-control">
+            {% for i in doctor %}
+         <option value="{{ i.name }}">{{ i.name }}</option>
+         {% endfor %}
+        </select>
+        <label>Patient Name</label>
+        <select name="patient" class="form-control">
+            {% for i in patient %}
+         <option value="{{ i.name }}">{{ i.name }} </option>
+         {% endfor %}
+        </select>
+        <label>Date</label>
+        <input type="date" class="form-control" name="date" required>
+        <label>Time</label>
+        <input type="time" class="form-control" name="time" required>
+        <br>
+        <input type="submit" value="Submit" class="form-control btn btn-primary">
+    </form>
+</div>
+{% ifequal error "no" %}
+<script>
+    alert('submit successfully');
+    
+</script>
+{% endifequal %}
+
+{% ifequal error "yes" %}
+<script>
+    alert('something went wrong');
+</script>
+{% endifequal %}
+{% endblock %}

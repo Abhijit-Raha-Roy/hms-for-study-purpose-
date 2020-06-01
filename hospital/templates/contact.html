@@ -1,0 +1,37 @@
+
+{% extends 'navigationbar.html' %}
+(% load static %)
+{% block body %}
+<style>
+    .mydivstyle:hover{
+        box-shadow: 0 0 20px 0 rgba(0,0,0,0.3);
+        transform: translate(-20px);
+    }
+</style>
+<div class="container" style="margin: 50px;">
+ <h3 class="text-center">Contact Us</h3>
+ <br><br>
+ <div class="row mt-5 text-center">
+     <div class="col-lg-3 col-sm-6 mydivstyle">
+      <h4><i class="fas fa-phone-square"></i>Contact</h4>
+      <p class="mt-3 font-weight-bold"><a href="tel:">+8801684029926</a></p>
+     </div>
+
+     <div class="col-lg-3 col-sm-6 mydivstyle">
+        <h4><i class="fas fa-envelope"></i>Send Email</h4>
+        <p class="mt-3 font-weight-bold"><a href="mailto:oviroy17@gmail.com">oviroy17@gmail.com</a></p>
+       </div>
+
+       <div class="col-lg-3 col-sm-6 mydivstyle">
+        <h4><i class="fas fa-address-card"></i>office Address</h4>
+        <p class="mt-3 font-weight-bold"><a href="http://maps.google.com/maps?q=Mohakhali+Dhaka">Mohakhali Dhaka</a></p>
+       </div>
+
+       <div class="col-lg-3 col-sm-6 mydivstyle">
+        <h4><i class="fas fa-phone-square"></i>Office hours</h4>
+        <p class="mt-3 font-weight-bold text-danger">9:00 AM to 7:00 PM</p>
+       </div>
+ </div>
+</div>
+
+{% endblock %}

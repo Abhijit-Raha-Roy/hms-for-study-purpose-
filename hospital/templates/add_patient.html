@@ -1,0 +1,34 @@
+{% extends 'navigationbar.html' %}
+(% load static %)
+{% block body %}
+<div class="container">
+    <h2>Add Patient</h2>
+    <form method="post">
+        {% csrf_token %}
+        <label>Patient Name</label>
+        <input type="text" class="form-control" name="name" required>
+        <label>Gender</label>
+        <input type="radio"  name="gender" value="male">Male
+        <input type="radio"  name="gender" value="female">Female
+        <br>
+        <label>Contact</label>
+        <input type="text" class="form-control" name="mobile" required>
+        <label>Addres</label>
+        <textarea class="form-control" name="address" required></textarea>
+        <br>
+        <input type="submit" value="Submit" class="form-control btn btn-primary">
+    </form>
+</div>
+{% ifequal error "no" %}
+<script>
+    alert('submit successfully');
+    
+</script>
+{% endifequal %}
+
+{% ifequal error "yes" %}
+<script>
+    alert('something went wrong');
+</script>
+{% endifequal %}
+{% endblock %}
